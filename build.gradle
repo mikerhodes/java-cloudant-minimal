@@ -1,0 +1,20 @@
+apply plugin: 'java'
+apply plugin: 'application'
+
+mainClassName = "searchindex.Main"
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.4'
+}
+
+task runJar(dependsOn:jar) << {
+  javaexec { main="-jar"; args jar.archivePath }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile group: 'com.cloudant', name: 'cloudant-client', version:'1.1.0'
+}
