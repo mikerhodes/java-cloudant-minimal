@@ -1,10 +1,8 @@
 package searchindex;
 
-import java.io.*;
 import java.util.*;
 
 import com.cloudant.client.api.*;
-import com.cloudant.client.api.model.*;
 
 // Upload a search index:
 //
@@ -21,7 +19,11 @@ import com.cloudant.client.api.model.*;
 class Main {
 
     public static void main(String[] args) {
-        CloudantClient client = new CloudantClient("http://username.cloudant.com", "username", "password");
+        CloudantClient client = ClientBuilder.account("example")
+                                             .username("exampleUser")
+                                             .password("examplePassword")
+                                             .build();
+
         Database db = client.database("java-searchindex", false);
 
         Map<String, Object> animals = new HashMap<>();
