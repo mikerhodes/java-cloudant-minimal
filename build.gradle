@@ -16,5 +16,5 @@ repositories {
 }
 
 dependencies {
-    compile group: 'com.cloudant', name: 'cloudant-client', version:'2.4.1'
+    compile group: 'com.cloudant', name: 'cloudant-client', version:'2.9.0'
 }
